@@ -8,6 +8,7 @@ You have two contracts, Wallet and WalletLibrary. Many Wallets can use methods f
 Do your own research online and see <b>if</b> you can find use inbuilt solidity functions that may help you.
 
 These articles may help you get started :)
+
 Parity Attack Post Mortem 
 https://www.parity.io/the-multi-sig-hack-a-postmortem/
 
