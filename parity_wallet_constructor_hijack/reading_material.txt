@@ -1,6 +1,0 @@
-
-Parity Attack Post Mortem 
-https://www.parity.io/the-multi-sig-hack-a-postmortem/
-
-"I accidentally killed it" 
-https://elementus.io/blog/which-icos-are-affected-by-the-parity-wallet-bug/
