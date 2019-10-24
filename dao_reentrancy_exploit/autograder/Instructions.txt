@@ -1,0 +1,34 @@
+
+### Installations (use sudo if necessary)
+
+Install ganache (Provides blockchain vm simulation)
+$ npm install -g ganache-cli
+
+Install truffle
+$ npm install -g truffle
+
+### Running the tests
+
+open ganache cli in a seperate terminal window and leave it open
+$ ganache-cli
+
+In a new terminal, cd into dao_reentrancy_exploit/autograder/grader
+
+To test a single submission [ use -s ], execute 
+$ ./runtest.sh -s ../sample/student2
+
+To test multiple submissions togther [ use -d ], execute 
+$ ./runtest.sh -d ../sample
+
+
+
+### Help for when runtest throws an error and crashes.
+
+When runtest fails with a migration error, the most probable issue is that the ganache cli wallets are out of ether.
+> To fix this, simple end the ganache-cli process and execute `ganache-cli` again in a new window. 
+
+(I have tried to automate this in the runtest script in the new_ganacheCLI function, but I haven't got it working yet.)
+
+
+
+
