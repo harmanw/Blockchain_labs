@@ -19,23 +19,23 @@ Lets get started with the setup.
 
 - On the top right corner, you'll see the accounts tab. Remix by default gives you 5 test accounts with 100 ether each. always make sure your environemnt is set to JavaScript VM.
 
-![](img/screen-accounts.png)
+![](img/screen-accounts.PNG)
 
 - Below that you'll see the deployment tab, This is where you'll deploy contracts you code in the editor.
 
-![](img/screen-deployment.png)
+![](img/screen-deployment.PNG)
 
 - At the bottom right, you'll see the deployed contracts. Here you'll be able to interact with the contracts just as a user would. 
 
-![](img/screen-deployed.png)
+![](img/screen-deployed.PNG)
 
 - At the bottom of the screen, you'll see the transactions tab. This will show you all the information about the transaction as seen publicly on the blockchain. 
 
-![](img/screen-tx.png)
+![](img/screen-tx.PNG)
 
 - One last important tab is the compilation tab. When compiling your code, you should set the remix compiler to match your solidity version. (For example if your code says `pragma solidity 0.4.26;`, the compiler should `0.4.26+commit.XXXXXX`. 
 
-![](img/compile.png)
+![](img/compile.PNG)
 
 Now that you know the main aspects of remix, lets deploy some contracts.
 
