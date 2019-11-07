@@ -45,22 +45,33 @@ Numbers on a computer are stored the in the same way the (old timey) gauges at g
 
 ![](https://i.pinimg.com/474x/b0/2f/f5/b02ff50cf2613f22a56e065c37164d15--simpsons-meme-the-simpsons.jpg) 
 
-The code in front of you represents a very simple smart contract that demonstrates the same idea. 
-The function `explain` runs a loop where that prints `i` (an unsigned 256 bit integer) and `uint8(i)` (the same 256 bit integer put into an 8 bit integer space).
-It is trivial to understand that at some point a 256 bit int will not fit in the space allocated for an 8 bit int.
+2. The code
+
+MovieBank is a new startup that helps movie theatres keep track of their ticket sales by storing the info on the blockchain. But they have received a lot of backlash for not implementing adequate security and being reckless in their development process. You read on a hacker blog that their TotalEarnings Contract might be have an interger overflow vulnerability. Being a curious CS student, you decide to take a look at the code.
+
+Part 1 - The attacker
+
+Your goal here is to try to perform an integer overflow attack on the contract to see if its really possible.
+
+The code in front of you is the TotalEarnings Contract.
 
 Click deploy in the deployment tab. You will notice a new item in the Deployed contracts tab. You will be able to execute the contracts functions from here.
 
-Try executing the explain function and look for the log statement of line 15 in the transaction tab.
-Try to find the exact point where the integer overflows out fo the 8 bit integer space.
+- Try calling `AddRevenue` with with 50 as input parameter in the deployed contract. 
+- Now Try calling the `getRevenue` function and look at the transactions in the transactions tab and verify the return value.
+-See if you can find the exact point where the integer overflows. This means that if you can force the number to increase enough, you can make MovieBanks earnings 0. 
 
-Once you have found it, Execute the `myanswer` function with the the input parameter as the last value of stored in the `uint8` before it resets to 0.
+Once you have found the largest earning value that can be stored, Execute the `myanswer` function with the the input parameter as your answer. 
 
-If you see `"string x": "YourAnswer"` in the latest transaction in the transaction tab, you followed these steps correctly.
+This means that if the revenue is 10, and you call addRevenue(1), and the renevue becomes 0. Then your answer is 10. 
 
+Part 2 - The fix
+
+Being a responsible Computer Security Student, you decide to find a fix to this and report it to MovieBank. Modify the code to fix the integer overflow bug. You can do this by either (1) Capping the reveue at the max value so that the overflow doesn't occur. or (2) changing the integer type to accomodate a larger numberspace.
+You need to implement one or both of these options.
 
 2. Submitting your code. 
 
 Under the transactions recorded tab, click save. This will create a .json file with a snapshot of blockchain. Copy this entire file and save it as `answer.json`.
 
-Submit answer.json on seclab. 
+Submit answer.json and the edited starter.sol on seclab. 
