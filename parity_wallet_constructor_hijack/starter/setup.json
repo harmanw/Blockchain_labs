@@ -1,0 +1,130 @@
+{
+    "accounts": {
+      "account{2}": "0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db"
+    },
+    "linkReferences": {},
+    "transactions": [
+      {
+        "timestamp": 1573144437737,
+        "record": {
+          "value": "0",
+          "parameters": [],
+          "abi": "0xdfcbe054725ea501056a95ff91530c2a83371e15ec9d05619f12c76baa92ee2f",
+          "contractName": "wallet_vuln",
+          "bytecode": "606060405234610000575b6100263361002c64010000000002610299176401000000009004565b5b610071565b80600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b50565b610386806100806000396000f30060606040523615610076576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806312065fe01461007b5780632e1a7d4d1461009e5780638da5cb5b146100d35780639da8be2114610122578063cbf0b0c014610155578063d0e30db014610188575b610000565b3461000057610088610192565b6040518082815260200191505060405180910390f35b34610000576100b960048080359060200190919050506101b2565b604051808215151515815260200191505060405180910390f35b34610000576100e0610273565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3461000057610153600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610299565b005b3461000057610186600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506102de565b005b610190610357565b005b60003073ffffffffffffffffffffffffffffffffffffffff163190505b90565b60003373ffffffffffffffffffffffffffffffffffffffff16600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561021057610000565b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc839081150290604051809050600060405180830381858888f1935050505090505b5b919050565b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b80600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b50565b3373ffffffffffffffffffffffffffffffffffffffff16600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561033a57610000565b8073ffffffffffffffffffffffffffffffffffffffff16ff5b5b50565b5b5600a165627a7a7230582031335d17aa1e8b7862ff306c9174d6d0c405d12373545f95ca7b89b579933eb60029",
+          "linkReferences": {},
+          "name": "",
+          "inputs": "()",
+          "type": "constructor",
+          "from": "account{2}"
+        }
+      },
+      {
+        "timestamp": 1573144447537,
+        "record": {
+          "value": "10000000000000000000",
+          "parameters": [],
+          "to": "created{1573144437737}",
+          "abi": "0xdfcbe054725ea501056a95ff91530c2a83371e15ec9d05619f12c76baa92ee2f",
+          "name": "deposit",
+          "inputs": "()",
+          "type": "function",
+          "from": "account{2}"
+        }
+      }
+    ],
+    "abis": {
+      "0xdfcbe054725ea501056a95ff91530c2a83371e15ec9d05619f12c76baa92ee2f": [
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "deposit",
+          "outputs": [],
+          "payable": true,
+          "type": "function",
+          "stateMutability": "payable"
+        },
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "getBalance",
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "payable": false,
+          "type": "function",
+          "stateMutability": "nonpayable"
+        },
+        {
+          "constant": false,
+          "inputs": [
+            {
+              "name": "_owner",
+              "type": "address"
+            }
+          ],
+          "name": "initWallet",
+          "outputs": [],
+          "payable": false,
+          "type": "function",
+          "stateMutability": "nonpayable"
+        },
+        {
+          "constant": false,
+          "inputs": [
+            {
+              "name": "_to",
+              "type": "address"
+            }
+          ],
+          "name": "kill",
+          "outputs": [],
+          "payable": false,
+          "type": "function",
+          "stateMutability": "nonpayable"
+        },
+        {
+          "constant": false,
+          "inputs": [
+            {
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "withdraw",
+          "outputs": [
+            {
+              "name": "success",
+              "type": "bool"
+            }
+          ],
+          "payable": false,
+          "type": "function",
+          "stateMutability": "nonpayable"
+        },
+        {
+          "inputs": [],
+          "payable": false,
+          "type": "constructor",
+          "stateMutability": "nonpayable"
+        },
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "owner",
+          "outputs": [
+            {
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "payable": false,
+          "type": "function",
+          "stateMutability": "view"
+        }
+      ]
+    }
+  }

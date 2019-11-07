@@ -1,30 +1,38 @@
 Files provided: starter.sol, walletLibrary.sol
 
-The goal of this challenge is to understand how the Parity Wallet Hack of November 2017 was done. 
+The goal of this challenge is to understand the vulnerability behind the Parity Wallet Hack of 2017. 
 In this assignment, you will be provided with starter code very similar to that of the actual (now deprecated) Parity Wallets.
+
+Part 0 - Intro
+
+A big use case of the blockchain is anonymous transfer of money (well almost anonymous). People can create Wallet contracts. Much like digital wallets (paypal etc..), these contracts can store money and send it to other wallets. 
+
+Its 2016 and you just heard about Parity's new Wallet being deployed on the blockchain. You read about solidity function modifiers on an ethereum security blog. 
+Fucntion modifiers are conditions you can apply onto a solidity function. This can be used to do certain checks before execting the function or to make sure that only users with specific permissions can execute the function. 
+
+For example, in the starter code, the `onlyOwner` function modifier on the `withdraw` function ensures that only the owner of the wallet can withdraw money. 
+Also notice that `onlyOwner` is not an inbuilt solidity function, you will find it implemented at the bottom of the code. 
 
 Part 1 - The Attacker
 
-You have two contracts, Wallet and WalletLibrary. Many Wallets can use methods from the WalletLibrary. An example of how a Wallet calls methods from the WalletLibrary can be found in starter.sol. You read some reddit threads about the parity wallet hacks athat really interested you. 
-CryptoWalletsPro is another small company that uses a WalletLibrary in its code. Since all code on the blockchain is open source, you found the source code for their wallets and ther wallet library. You want to try and see if their wallets are have the same vulnerability that Parity wallets did. 
-Your goal is to siphon off any and all ether from the WalletLibrary contract
-Do your own research online and see `if` you can find use inbuilt solidity functions that may help you.
+Parity knows that since their product is new, there might be some vulnerabilities. So they made a post on twitter saying that anyone who can find a bug in their wallets and responsibily reports it to them will receive a 2000$ cash reward. Having studied a little bit about the blockchain, you decide to give it a go.
 
-Steps to get you set up.
-- Load your starter.sol, and walletLibrary.sol into remix.
-- Deploy walletLibrary with some ether. 
-- Now add your code into wallet in starter.sol, deploy your malicious wallet contract, and steal the ether from the walletlibrary.
+Get started.
+- Load your setup.json, wallet_vuln.sol and wallet_atk.sol into the remix ide.
+- Play the setup.json transactions and look through the logs.
+- You'll see that wallet_vuln has some money in it.
+- Your goal is to write some code in the wallet_atk's attack() function and try to steal this money.
 
-Hints:
-- Study the walletLibrary code, do you see anything strange ?
-- Look at how the wallet calls the withdraw fucntion of the walletlibrary. If you are to do anything similar, you will want to use the same kind of call.
+Hint: Try to look st the function modifier of each function in wallet_vuln and see if you can get past any of these.
 
-Part 2 - The Savior
+Part 2 - The (Rich) Ethical Hacker
 
-Being an ethical CS student, you reach out to an engineer at at CryptoWalletsPro and inform them about this vulnerability. They're so glad you came to them with the issue and didn't post it online for the world to see. But they're having trouble figuring it out the fix for this vulnerability. Since, you're the one who found the vulnerability, they are willing to offer your a Bounty of $5,000 if you can figure out a fix too. 
+Now that you found a major vulnerability in the Parity Wallet code, you're bound to get the cash reward. Good job. But being blockchain developer, you're interested in knowing if its possible to fix the code. 
 
-You want this bounty. Your goal is to fix the walletLibrary contract in walletLibrary.sol
+- Try to fix the code in wallet_vuln by creating a new funtion modifier and applying it to the required fucntions.
+- Check your fix by running the exploit from Part 1 on your code. 
 
+Submit your wallet_atk.sol with the exploit and the fixed wallet_vuln.sol .
 
 These articles may help you get started :)
 
