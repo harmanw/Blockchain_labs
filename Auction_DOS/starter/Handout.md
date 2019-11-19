@@ -38,11 +38,17 @@ Get started.
 - This means that instead of directly refunding the money to the previous bidder, the contract stores the money for the previous bidder to withdraw on their own.
 
 Essentially
-Instead of, Contract     ----> push money back ----> User
+Instead of, 
+
+```
+Contract     ----> push money back ----> User
+```
 
 We implement
+```
 Contract      <----- request to withdraw  <---- User
 Contract      ----> pulls money out ----> User
+```
 
 Your goal is to create a function called `withdraw` in the Auction contract, where a bidders (except the highest bidder) can pull their money out from the contract. One way to do this to store a mapping of addresses to bids. And sedn the bid money back when withdraw is called. 
 
