@@ -28,7 +28,7 @@ Hint: Try to look at conditions in the code of the functions and see if you can 
 
 If your code guarantees winning the auction without spending too much money, you have successfully found and exploited a vulerability in CryptoBay's "100% secure" codebase. (You will only need 1 bid)
 
-Part 2 - The (Rich) Ethical Hacker
+Part 2 - The Ethical Hacker
 
 After graduating with a CS degree from UofT, you get a job as a at an up and coming ecommerce startup in Toronto, CryptoBay. Its like Ebay, but their entire auction and bidding system is done on the blockchain to make the entire process open, transparent and secure (!!!). In your first week you notice a weird pattern in the auction logs of some products. A majority of the bids don't go through succesfully. You decide to take a look into the problem. 
 
