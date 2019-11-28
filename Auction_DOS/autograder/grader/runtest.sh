@@ -113,7 +113,7 @@ function run_single(){
 
         #copy solidity tests for attacker
         rm test/*
-        cp ../files/attacker_test.sol test
+        cp ../files/auction_test.sol test
 
         safe_migrate
         
@@ -124,7 +124,7 @@ function run_single(){
     fi
 
     cd ..
-    rm -r testspace
+    rm -rr testspace
 
 }
 

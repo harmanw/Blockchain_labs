@@ -5,21 +5,23 @@ import "./auction.sol";
 contract user {
     auction auc;
     
+    function user() public payable {}
+    
     function linkToAuc(address addr) public {
         auc = auction(addr);
     }
 
-    function bid(){
+    function bid() public {
         auc.bid.value(10)();
     }
 
-    function bidHighest(){
+    function bidHighest() public {
         uint val = auc.getHighestBid();
         auc.bid.value(val+1)();
     }
     
     function() payable public {
-        if (auc.getCurrentLeader() == address(this)) throw;
+        if (auc.getCurrentLeader() == address(this)) revert();
     }
     
 }

@@ -3,8 +3,8 @@ var attacker = artifacts.require("./attacker.sol");
 var user = artifacts.require("./user.sol");
 
 module.exports = function(deployer) {
-    deployer.deploy(auction, {value : 10000000000000000000 });
-    deployer.deploy(attacker, {value : 10000000000000000000  });
-    deployer.deploy(user, {value : 10000000000000000000  });
+    deployer.deploy(auction);
+    deployer.deploy(attacker, {value : 100  });    
+    deployer.deploy(user, {value : 100  });
 
 };
