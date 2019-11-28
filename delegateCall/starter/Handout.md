@@ -44,24 +44,34 @@ Contract B {
 `delegatecall` is useful when contracts want to use different functions from a library. They call simply make a delegate call to the library, instead of coding up the functionality themselves. 
 
 
-WalletPro is a digital wallet company in Toronto. This year they decided to move transactions onto the blockchain to be more transaprent. To get better functionality their wallets use a library called SmartFinances. SmartFinances is a solidity finance library that provides a lot of useful features to digital wallets such as maintaining deposit history, withdrawal history and much more. 
+Scryptr is a new startup in Toronto that helps newspapers in their editting process by putting all edits on the blockchain to make the entire process open and transparent. To simplify their coding process they created a library to handle strings in solidity. For the purposes of this exercise, we're going to refer to the following open source solidity string library (https://github.com/Arachnid/solidity-stringutils).
 
 Get started.
-- Load your setup.json, SmartFinance.sol, and Wallet.sol into the remix ide.
-- Play the setup.json transactions and look through the transactions.
-- You'll see that 5 wallets are deployed and further investigation of the logs will reveal that each wallet has 1 ether.
+- Load your string.sol, and essay.sol into the remix ide.
 
-You are a blockchain developer working with SmartFinances. You have been working on an update for the library for a few months now. But !OH NO! SmartFinances has had sudden budget cuts and they've had to fire some of its dev team. Unfortunantely, you were fired too. But what about all the work you did ?
+You'll notice that essay.sol, a contract used to handle edits, uses a delegatecalls in its code. 
+
+You are a blockchain developer working with Scryptr. You have been working on an update for the library for a few months now. But !OH NO! Scryptr has had sudden budget cuts and they've had to fire some of its dev team. Unfortunantely, you were fired too. But what about all the work you did ?
 
 Part 1 - The Attacker
 
-Before leaving at the end of the week, you decide to add some malicious code onto the library to steal the money from all wallets that use it. 
-Having studying about solidity libraries for months, you know that all users of the libraries use `delegatecall` to use execute the library code. 
+Before leaving at the end of the week, you decide to add some malicious code onto the library to make it useless to all clients that use it. 
+Having studied about solidity libraries for months, you know that all users of the libraries use `delegatecall` to use execute the library code. 
 
-Add some code to the library to steal all the money from a user's wallet. This code can be triggered when thet withdraw or deposit any money.
+Add some code to the library to make sure that every function call to the library reverts the transaction.
 
-Once done, deploy your SmartFinances.sol contract and use the deployed user to test your exploit. If you can steal the 5 ether from the 5 wallets, your exploit works successfully. 
+Once done, deploy your string.sol contract and use the deployed user to test your exploit. You can make a delegatecall to the string contract and guarantee that it will always fail, you have successfully rendered the contract useless to all its clients. 
 
-Submit your malicious SmartFinances.sol.
+Part 2 - The ethical Hacker
 
-Recommended reading: https://medium.com/coinmonks/delegatecall-calling-another-contract-function-in-solidity-b579f804178c
+Knowing that essay contract depends on an external library for all functionality especially, making edits can be very disastrous. What if the library crashes, how would you access essays? The news cycle does not stop !
+
+As a responsible coder, add and implement and function to the essay contract, `export`, that returns the essay strings as output, that DOES NOT use any external libraries. 
+
+This ensures that even if a library crashes or does anything malicious. Yuou can always export your work into a string and continue working on it elsewhere.
+
+Submit your malicious string.sol and safe essay.sol
+
+Recommended reading: 
+- https://medium.com/coinmonks/delegatecall-calling-another-contract-function-in-solidity-b579f804178c
+- https://github.com/Arachnid/solidity-stringutils
