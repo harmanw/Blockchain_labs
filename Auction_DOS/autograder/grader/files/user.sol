@@ -2,14 +2,20 @@ pragma solidity ^0.4.21;
 
 import "./auction.sol";
 
-contract attacker {
+contract user {
     auction auc;
     
-    function attack(address addr) {
+    function linkToAuc(address addr) public {
         auc = auction(addr);
-        
+    }
+
+    function bid(){
+        auc.bid.value(10)();
+    }
+
+    function bidHighest(){
         uint val = auc.getHighestBid();
-        auc.bid.value(val + 1)();
+        auc.bid.value(val+1)();
     }
     
     function() payable public {

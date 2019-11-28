@@ -2,11 +2,11 @@ pragma solidity ^0.4.10;
 
 import "./auction.sol";
 
-contract Attacker {
-    Auction auc;
+contract attacker {
+    auction auc;
     
     function attack(address addr) {
-        auc = Auction(addr);
+        auc = auction(addr);
     }
     
     function() payable public {}
