@@ -59,33 +59,28 @@ function run_single(){
     cp ../files/truffle-config.js .
     cp ../files/2_deploy_contracts.js migrations
     cp ../files/Migrations.sol contracts
-    cp ../files/user.sol contracts
-
-    test_attacker=0
-    test_auction=0
-
-    # TEST ATTACKER
 
 
-    if [ -f "../$dir/attacker.sol" ]
+    # TEST 
+    test=0
+
+    if [ -f "../$dir/essay.sol" ] && [ -f "../$dir/string.sol" ] 
     then
-        cp ../$dir/attacker.sol contracts
-        test_attacker=1
+        cp ../$dir/string.sol contracts
+        cp ../$dir/essay.sol contracts
+        test=1
     else
-        echo "No attacker.sol found for $submission"
+        echo "No files found for $submission"
     fi 
 
     echo "" > ../$dir/results.txt
 
-    if [ test_attacker ]
+    if [ test ]
     then
-
-        #copy vulnerable contract
-        cp ../files/auction_vuln.sol contracts/auction.sol
 
         #copy solidity tests for attacker
         rm test/*
-        cp ../files/attacker_test.sol test
+        cp ../files/test.sol test
 
         safe_migrate
 
@@ -95,33 +90,6 @@ function run_single(){
         echo -e "$result"
     fi
 
-    # TEST Auction
-
-    if [ -f "../$dir/auction.sol" ]
-    then
-        cp ../$dir/auction.sol contracts/auction.sol
-        test_auction=1
-    else
-        echo "No auction.sol found for $submission"
-    fi 
-
-    if [ test_auction ]
-    then
-
-        #copy correct attacker exploit contract
-        cp ../files/attacker_correct.sol contracts/attacker.sol
-
-        #copy solidity tests for attacker
-        rm test/*
-        cp ../files/auction_test.sol test
-
-        safe_migrate
-        
-        result=`truffle test`
-
-        echo -e "$result" >> ../$dir/results.txt
-        echo -e "$result"
-    fi
 
     cd ..
     rm -rr testspace
